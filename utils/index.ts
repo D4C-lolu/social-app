@@ -1,7 +1,9 @@
 import axios from "axios";
+import jwt_decode from "jwt-decode";
 
 export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
+1;
 export const createOrGetUser = async (response: any, addUser: any) => {
   var base64Url = response.credential.split(".")[1];
   var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
@@ -14,6 +16,7 @@ export const createOrGetUser = async (response: any, addUser: any) => {
       })
       .join("")
   );
+  // const decoded :{name:string,picture:string,sub:string} = jwt_decode(response.credential);
 
   const { name, picture, sub } = JSON.parse(jsonPayload);
 
@@ -26,5 +29,9 @@ export const createOrGetUser = async (response: any, addUser: any) => {
 
   addUser(user);
 
-  await axios.post(`${BASE_URL}/api/auth`, user);
+  try {
+    await axios.post(`${BASE_URL}/api/auth`, user);
+  } catch (e) {
+    console.error(e);
+  }
 };

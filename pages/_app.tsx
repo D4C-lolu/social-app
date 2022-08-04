@@ -6,10 +6,13 @@ import { Navbar, Sidebar, Discover, Footer } from "../components";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [isSSR, setIsSSR] = useState(true);
+
   useEffect(() => {
     setIsSSR(false);
   }, []);
+
   if (isSSR) return null;
+
   return (
     <GoogleOAuthProvider
       clientId={`${process.env.NEXT_PUBLIC_GOOGLE_API_TOKEN}`}

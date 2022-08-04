@@ -3,6 +3,7 @@ import Head from "next/head";
 import axios from "axios";
 import { Video } from "../types";
 import { VideoCard, NoResults } from "../components";
+import { BASE_URL } from "../utils";
 
 interface Iprops {
   videos: Video[];
@@ -30,13 +31,20 @@ const Home: NextPage<Iprops> = ({ videos }) => {
 };
 
 export const getServerSideProps = async () => {
-  const { data } = await axios.get(`http://localhost:3000/api/post`);
+  try {
+    const { data } = await axios.get(`http://${BASE_URL}/api/post`);
 
-  return {
-    props: {
-      videos: data,
-    },
-  };
+    return {
+      props: {
+        videos: data,
+      },
+    };
+  } catch (e) {
+    console.error(e);
+    return {
+      props: { videos: {} },
+    };
+  }
 };
 
 export default Home;
