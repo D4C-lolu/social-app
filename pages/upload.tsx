@@ -29,6 +29,7 @@ const Upload = () => {
 
   const uploadVideo = async (e: any) => {
     const selectedFile = e.target.files[0];
+    console.log(selectedFile);
     const fileTypes = ["video/mp4", "video/webm", "video/ogg"];
 
     // uploading asset to sanity
@@ -54,6 +55,7 @@ const Upload = () => {
   const handlePost = async () => {
     if (caption && videoAsset?._id && topic) {
       setSavingPost(true);
+      console.log("Posting....");
 
       const doc = {
         _type: "post",
@@ -141,7 +143,9 @@ const Upload = () => {
                       src={videoAsset?.url}
                     />
                     <div className=" flex justify-between gap-20">
-                      <p className="text-lg">{videoAsset.originalFilename}</p>
+                      <p className="text-lg py-3">
+                        {videoAsset.originalFilename}
+                      </p>
                       <button
                         type="button"
                         className=" rounded-full bg-gray-200 text-red-400 p-2 text-xl cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
@@ -161,15 +165,17 @@ const Upload = () => {
             </p>
           )}
         </div>
-        <div className="flex flex-col gap-3 py-10">
-          <label className="text-md font-medium ">Caption</label>
+        <div className="flex flex-col gap-3 pt-20">
+          <label className="text-xl font-medium ">Caption</label>
           <input
             type="text"
             value={caption}
             onChange={(e) => setCaption(e.target.value)}
             className="rounded lg:after:w-650 outline-none text-md border-2 border-gray-200 p-2"
           />
-          <label className="text-md font-medium ">Choose a topic</label>
+          <label className="text-xl first-letter font-medium ">
+            Choose a topic
+          </label>
 
           <select
             onChange={(e) => {

@@ -2,8 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  typescript: { ignoreBuildErrors: true },
   images: {
-    domains: ["i.ytimg.com", "lh3.googleusercontent.com"],
+    domains: [
+      "i.ytimg.com",
+      "lh3.googleusercontent.com",
+      "encrypted-tbn0.gstatic.com",
+    ],
   },
 };
 

@@ -9,7 +9,15 @@ export default async function handler(
 ) {
   if (req.method === "GET") {
     const query = allPostsQuery();
+
     const data = await client.fetch(query);
-    return res.status(200).json(data);
+
+    res.status(200).json(data);
+  } else if (req.method === "POST") {
+    const doc = req.body;
+
+    client.create(doc).then(() => {
+      res.status(200).json("video created");
+    });
   }
 }

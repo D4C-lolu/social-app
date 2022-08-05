@@ -8,7 +8,6 @@ import { IoMdAdd } from "react-icons/io";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { IUser } from "../types";
 import { createOrGetUser } from "../utils";
-import Logo1 from "../utils/logo.png";
 import useAuthStore from "../store/authStore";
 
 const Navbar = () => {

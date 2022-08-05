@@ -4,3 +4,4 @@
 
 - Ability to sign up via Google Auth
 - Ability to add,like and filter videos
+- Ability to comment on videos

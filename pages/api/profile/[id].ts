@@ -20,6 +20,7 @@ export default async function handler(
 
     const user = await client.fetch(query);
     const userVideos = await client.fetch(userVideosQuery);
+    await console.log(userVideos);
     const userLikedVideos = await client.fetch(userLikedVideosQuery);
 
     const data = { user: user[0], userVideos, userLikedVideos };
