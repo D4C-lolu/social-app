@@ -67,7 +67,10 @@ const Search = ({ videos }: { videos: Video[] }) => {
               </Link>
             ))
           ) : (
-            <NoResults text={`No Account Results for ${searchTerm}`} />
+            <NoResults
+              video={true}
+              text={`No Account Results for ${searchTerm}`}
+            />
           )}
         </div>
       ) : (
@@ -77,7 +80,10 @@ const Search = ({ videos }: { videos: Video[] }) => {
               <VideoCard post={post} key={idx} />
             ))
           ) : (
-            <NoResults text={`No Video Results for ${searchTerm}`} />
+            <NoResults
+              video={true}
+              text={`No Video Results for ${searchTerm}`}
+            />
           )}
         </div>
       )}

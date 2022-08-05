@@ -23,7 +23,7 @@ const Home: NextPage<Iprops> = ({ videos }) => {
             <VideoCard post={video} isShowingOnHome key={video._id} />
           ))
         ) : (
-          <NoResults text={`No Videos`} />
+          <NoResults video={true} text={`No Videos`} />
         )}
       </div>
     </>

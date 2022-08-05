@@ -80,6 +80,7 @@ const Profile = ({ data }: IProps) => {
             ))
           ) : (
             <NoResults
+              video={true}
               text={`No ${showUserVideos ? "" : "Liked"} Videos Yet`}
             />
           )}

@@ -71,7 +71,10 @@ const Comments = ({
             </>
           ))
         ) : (
-          <NoResults text="No Comments Yet! Be First to do add the comment." />
+          <NoResults
+            video={false}
+            text="No Comments Yet! Be First to do add the comment."
+          />
         )}
       </div>
       {userProfile && (

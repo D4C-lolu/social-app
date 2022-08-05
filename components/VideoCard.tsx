@@ -55,7 +55,7 @@ const VideoCard: NextPage<IProps> = ({
           </p>
         </div>
         <Link href={`/detail/${_id}`}>
-          <p className="mt-5 text-md text-gray-800 cursor-pointer w-210">
+          <p className="mt-5 text-xl  text-gray-800 cursor-pointer w-210">
             {caption}
           </p>
         </Link>
