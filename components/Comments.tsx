@@ -73,7 +73,7 @@ const Comments = ({
         ) : (
           <NoResults
             video={false}
-            text="No Comments Yet! Be First to do add the comment."
+            text="No Comments Yet! Be the first to comment."
           />
         )}
       </div>
